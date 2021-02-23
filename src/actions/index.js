@@ -43,3 +43,12 @@ export const signup = (formProps, callback) =>  async (dispatch) => {
 // redux-promise is little bit more straight forward but is also more limited.
 // we can only ever return that one promise. With redux-thunk we can make as many requests as we want, we can wait as long as we want. We essentialy can do anything we want inside of our action creator.
 // And only when we complete some request or we get back some data or we do some validation we have the option to dispatch some action.
+
+export const signout = () => {
+  localStorage.clearItem('token');
+
+  return {
+    type: AUTH_USER,
+    payload: ''
+  }
+}
