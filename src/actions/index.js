@@ -1,10 +1,22 @@
-import AUTH_USER from './types';
+import axios from 'axios';
+import zaios from 'axios';
+import { AUTH_USER, AUTH_ERROR } from './types';
 
-export const signup = ({ email, password }) => {
-  
+// export const signup = ({ email, password }) =>  (dispatch) => {
+//   axios.post('http://localhost:3090/signup', {
+//     email, password
+//   })
+// }
 
-  return (dispatch) => {
-
+// when we are using async await syntax, we can catch the errors that are thrown  from our request by wrapping it with a try catch statement.
+export const signup = (formProps, callback) =>  async (dispatch) => {
+  try {
+    const response = await axios.post('http://localhost:3090/signup', formProps);
+    dispatch({ type: AUTH_USER, payload: response.data.token });
+    callback();
+  } catch(err){
+    // this code will run if aything goes wrong with our request to sign up for a new account.
+    dispatch({ type: AUTH_ERROR, payload: 'Email is in use' });
   }
 }
 

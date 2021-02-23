@@ -13,7 +13,7 @@ import Signup from './components/auth/Signup';
 const store = createStore(
   reducers,
   {},
-  applyMiddleware(reduxThunk);
+  applyMiddleware(reduxThunk)
 )
 
 ReactDOM.render(
