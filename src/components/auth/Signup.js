@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import * as actions from './../../actions';
 
 class Signup extends Component {
-  // to make sure the user get automatically redirected to the Feature page upn signup
+  // to make sure the user get automatically redirected to the Feature page upon signup
   // we pass a second argument (a callback) to the signup action creator that is called inside onSubmit.
   // this callback is automaticalled called up after the user successfully signs up.
   // Inside this callback function we do the navigation step that will send user to the feature route
@@ -44,3 +44,6 @@ export default compose(
   connect(mapStateToProps, actions),
   reduxForm({ form: 'signup' })
 )(Signup);
+
+// CORS
+// As security feature implemented inside of our browser. So the bowser tht we are suing is issuing this CORS error to us
